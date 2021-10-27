@@ -1,14 +1,16 @@
 package com.pirates.service;
 
+import com.pirates.dto.ReceiveDateDto;
 import com.pirates.dto.product.ProductGetDetailDto;
 import com.pirates.dto.product.ProductGetDto;
 import com.pirates.dto.product.ProductRegisterDto;
-import com.pirates.dto.ReceiveDateDto;
+
+import java.util.List;
 
 public interface ProductService {
     void add(ProductRegisterDto dto);
     ProductGetDetailDto findOne(Long id);
-    ProductGetDto findAll();
-    ReceiveDateDto getReceiveDates(Long id);
+    List<ProductGetDto> findAll();
+    List<ReceiveDateDto> getReceiveDates(Long id);
     void remove(Long id);
 }

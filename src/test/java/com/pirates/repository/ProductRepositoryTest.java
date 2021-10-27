@@ -72,6 +72,7 @@ class ProductRepositoryTest {
         });
     }
 
+
     private Delivery createDelivery(){
         return Delivery.builder().type(DeliveryType.fast).build();
     }
