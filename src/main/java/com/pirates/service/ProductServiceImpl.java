@@ -1,6 +1,6 @@
 package com.pirates.service;
 
-import com.pirates.dto.ReceiveDatesDto;
+import com.pirates.dto.ReceiveDateDto;
 import com.pirates.dto.product.ProductGetDetailDto;
 import com.pirates.dto.product.ProductGetDto;
 import com.pirates.dto.product.ProductRegisterDto;
@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public ReceiveDatesDto getReceiveDates(Long id) {
+    public ReceiveDateDto getReceiveDates(Long id) {
         return null;
     }
 
