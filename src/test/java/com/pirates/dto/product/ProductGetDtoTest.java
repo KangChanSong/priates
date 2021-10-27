@@ -1,6 +1,5 @@
 package com.pirates.dto.product;
 
-import com.pirates.entity.Delivery;
 import com.pirates.entity.Product;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -14,14 +13,12 @@ class ProductGetDtoTest {
     public void toDtoTest(){
         //given
         String name = "상품";
-        int price = 1030000;
         Product product = Product.builder()
                 .name(name)
-                .delivery(Delivery.builder().price(price).build())
                 .build();
 
         //when
-        ProductGetDto productGetDto = ProductGetDto.toDto(product);
+        ProductGetDto productGetDto = ProductGetDto.toDto(product, 1030000);
         //then
         assertEquals(productGetDto.getName(), name);
         assertEquals(productGetDto.getPrice(), "1,030,000 ~");

@@ -30,7 +30,7 @@ public class Product extends BaseEntity {
         this.name = name;
         this.description = description;
         this.delivery = delivery;
-        options.forEach(option -> option.setProduct(this));
         this.options = options;
+        if(options != null) options.forEach(option -> option.setProduct(this));
     }
 }

@@ -5,9 +5,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface OptionRepository extends JpaRepository<Option, Long> {
-    @Query("SELECT min(o.price) FROM Option o where o.product.id = :productId")
-    Optional<Long> getLowestPrice(@Param("productId") Long productId);
+    @Query("SELECT min(o.price) FROM Option o where o.product.id in :productIdList group by o.product.id")
+    List<Long> getLowestPrice(@Param("productIdList") List<Long> productIdList);
 }

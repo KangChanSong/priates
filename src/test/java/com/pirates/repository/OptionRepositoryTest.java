@@ -3,6 +3,7 @@ package com.pirates.repository;
 import com.pirates.entity.Delivery;
 import com.pirates.entity.Option;
 import com.pirates.entity.Product;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -51,21 +51,41 @@ class OptionRepositoryTest {
     @Test
     public void GET_LOWEST_PRICE(){
         //given
-        List<Option> options = new ArrayList<>();
-        IntStream.range(0, 100).forEach(i-> options.add(Option.builder().name("a").price(1000 + i).build()));
+        List<Option> options1 = new ArrayList<>();
+        List<Option> options2 = new ArrayList<>();
+        List<Option> options3 = new ArrayList<>();
+        options1.add(Option.builder().price(1000).build());
+        options1.add(Option.builder().price(1001).build());
+        options2.add(Option.builder().price(1002).build());
+        options2.add(Option.builder().price(1003).build());
+        options3.add(Option.builder().price(1004).build());
+        options3.add(Option.builder().price(1005).build());
 
-        Product product = Product.builder()
-                .name("product")
-                .delivery(Delivery.builder().price(1000).build())
-                .options(options)
-                .build();
+        Product product1 = createProductWithOptions(options1);
+        Product product2 = createProductWithOptions(options2);
+        Product product3 = createProductWithOptions(options3);
 
         //when
-        productRepository.save(product);
+        productRepository.save(product1);
+        productRepository.save(product2);
+        productRepository.save(product3);
+
+        List<Long> productIds = new ArrayList<>();
+        productIds.add(product1.getId());
+        productIds.add(product2.getId());
+        productIds.add(product3.getId());
 
         //then
-        Long lowestPrice = optionRepository.getLowestPrice(product.getId()).orElse(0L);
-        assertEquals(1000, lowestPrice);
+        List<Long> lowestPrices = optionRepository.getLowestPrice(productIds);
+        Assertions.assertEquals(1000, lowestPrices.get(0));
+        Assertions.assertEquals(1002, lowestPrices.get(1));
+        Assertions.assertEquals(1004, lowestPrices.get(2));
+    }
+
+    private Product createProductWithOptions(List<Option> options){
+        return Product.builder()
+                .name("p").delivery(Delivery.builder().price(1000).build())
+                .options(options).build();
     }
 
 }

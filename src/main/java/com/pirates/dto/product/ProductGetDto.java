@@ -9,15 +9,15 @@ public class ProductGetDto {
     private String description;
     private String price;
 
-    public static ProductGetDto toDto(Product product){
+    public static ProductGetDto toDto(Product product, Long lowestPrice){
         ProductGetDto dto = new ProductGetDto();
         dto.setName(product.getName());
         dto.setDescription(product.getDescription());
-        dto.setPrice(convertToString(product.getDelivery().getPrice()));
+        dto.setPrice(convertToString(lowestPrice));
         return dto;
     }
 
-    private static String convertToString(int price){
+    private static String convertToString(Long price){
         StringBuffer buffer = new StringBuffer();
         buffer.append(price);
         buffer.reverse();

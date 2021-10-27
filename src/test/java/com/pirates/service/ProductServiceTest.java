@@ -1,5 +1,6 @@
 package com.pirates.service;
 
+import com.pirates.repository.OptionRepository;
 import com.pirates.repository.ProductRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -20,10 +21,12 @@ class ProductServiceTest {
 
     @Mock
     ProductRepository productRepository;
+    @Mock
+    OptionRepository optionRepository;
 
     @BeforeEach
     public void setUp(){
-        this.productService = new ProductServiceImpl(productRepository);
+        this.productService = new ProductServiceImpl(productRepository, optionRepository);
     }
 
     @DisplayName("id 로 상품을 찾지 못했을때 예외를 던진다.")
