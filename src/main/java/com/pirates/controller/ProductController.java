@@ -16,27 +16,27 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @PostMapping(name = "/api/v1/product/register")
+    @PostMapping("/api/v1/product/register")
     public void register(@RequestBody ProductRegisterDto dto){
         productService.register(dto);
     }
 
-    @GetMapping(name = "/api/v1/product/list")
+    @GetMapping("/api/v1/product/list")
     public List<ProductGetDto> getList(){
         return productService.findAll();
     }
 
-    @GetMapping(name = "/api/v1/product/get/{productId}")
+    @GetMapping("/api/v1/product/get/{productId}")
     public ProductGetDetailDto get(@PathVariable("productId") Long id){
         return productService.findOne(id);
     }
 
-    @GetMapping(name = "/api/v1/product/receive-dates/{productId}")
+    @GetMapping("/api/v1/product/receive-dates/{productId}")
     public List<ReceiveDateDto> getReceiveDates(@PathVariable("productId") Long id){
         return productService.getReceiveDates(id);
     }
 
-    @DeleteMapping(name = "/api/v1/product/delete/{productId}")
+    @DeleteMapping("/api/v1/product/delete/{productId}")
     public void delete(@PathVariable("productId") Long id){
         productService.remove(id);
     }

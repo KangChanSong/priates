@@ -13,11 +13,11 @@ public class ProductGetDto {
         ProductGetDto dto = new ProductGetDto();
         dto.setName(product.getName());
         dto.setDescription(product.getDescription());
-        dto.setPrice(convert(product.getDelivery().getPrice()));
+        dto.setPrice(convertToString(product.getDelivery().getPrice()));
         return dto;
     }
 
-    private static String convert(int price){
+    private static String convertToString(int price){
         StringBuffer buffer = new StringBuffer();
         buffer.append(price);
         buffer.reverse();

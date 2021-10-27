@@ -22,7 +22,7 @@ public class Product extends BaseEntity {
     @Embedded
     private Delivery delivery;
 
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy = "product")
     private List<Option> options = new ArrayList<>();
 
     @Builder
@@ -30,6 +30,7 @@ public class Product extends BaseEntity {
         this.name = name;
         this.description = description;
         this.delivery = delivery;
+        options.forEach(option -> option.setProduct(this));
         this.options = options;
     }
 }
