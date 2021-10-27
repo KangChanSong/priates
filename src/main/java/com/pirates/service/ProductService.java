@@ -8,7 +8,7 @@ import com.pirates.dto.product.ProductRegisterDto;
 import java.util.List;
 
 public interface ProductService {
-    void add(ProductRegisterDto dto);
+    void register(ProductRegisterDto dto);
     ProductGetDetailDto findOne(Long id);
     List<ProductGetDto> findAll();
     List<ReceiveDateDto> getReceiveDates(Long id);

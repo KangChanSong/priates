@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Transactional
     @Override
-    public void add(ProductRegisterDto dto) {
+    public void register(ProductRegisterDto dto) {
         productRepository.save(dto.toEntity());
     }
 
