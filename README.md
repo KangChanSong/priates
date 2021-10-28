@@ -58,6 +58,7 @@ Build and run using 과 Run tests using 을 모두 IntelliJ IDEA 로 바꾼 후 
        foreign key (product_id) 
        references product;
       
+### 테이블 생성 확인
  테이블이 생성되었으면 다음 쿼리를 실행해 테이블과 제약조건이 잘 생성됐는지 확인해주세요.  
    
 show columns from option;  
