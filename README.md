@@ -2,8 +2,8 @@
 
 ## 설치 가이드
 ### IntelliJ 에서 프로젝트 열기
-* GIT 이 설치돼있다면 git clone https://github.com/KangChanSong/priates 명령어를 실행해주세요.
-* IntelliJ 를 열고 open -> 클론이 된 프로젝트의 디렉토리를 선택해주세요.
+* GIT 이 설치돼있다면 "git clone https://github.com/KangChanSong/priates" 명령어를 실행해주세요.
+* IntelliJ 를 열고 open -> "클론이 된 프로젝트의 디렉토리"를 선택해주세요.
 * build.gradle 을 실행해주세요.
 * 아래의 테이블 생성 SQL 을 실행해주세요.
 * 테스트를 전부 실행하여 애플리케이션이 실행될 준비가 됐는지 확인해주세요.
@@ -14,15 +14,15 @@
   
 1.8 보다 높은 버전으로 서버를 실행시키고 싶으시면
 다음의 Intellij 설정을 따라해주세요.
-* File -> Projcet Structure -> Project 에서 SDK 버전을 변경해주세요.
+* "File -> Projcet Structure -> Project" 에서 SDK 버전을 변경해주세요.
 * 프로젝트 디렉토리의 build.gradle 파일을 열어 sourceCompatibility 를 해당 버전으로 변경해주세요.
   
-그리고 build.gradle을 열어 놓은 상태에서 Ctrl + Shift + O 를 눌러 변경을 적용시켜주세요.
+그리고 build.gradle을 열어 놓은 상태에서 "Ctrl + Shift + O" 를 눌러 변경을 적용시켜주세요.
 
 ### 테스트 한글 깨짐 관련
 테스트 실행시 테스트의 한글이 깨져보일 수 있습니다.   
-File -> Setting -> Build, Execution, Deployment -> Build Tools -> Gradle 에서    
-Build and run using 과 Run tests using 을 모두 IntelliJ IDEA 로 바꾼 후 apply를 눌러주세요.  
+"File -> Setting -> Build, Execution, Deployment -> Build Tools -> Gradle" 에서    
+"Build and run using" 과 "Run tests using" 을 모두 "IntelliJ IDEA" 로 바꾼 후 "apply"를 눌러주세요.  
 그리고 IntelliJ 를 재시작해주세요.    
   
 ## 테이블 생성 가이드
