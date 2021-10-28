@@ -41,4 +41,5 @@ class ProductServiceTest {
         assertThrows(IllegalStateException.class, () -> productService.findOne(productId));
         assertThrows(IllegalStateException.class, () -> productService.getReceiveDates(productId));
     }
+    
 }

@@ -18,7 +18,7 @@ class ProductGetDtoTest {
                 .build();
 
         //when
-        ProductGetDto productGetDto = ProductGetDto.toDto(product, 1030000);
+        ProductGetDto productGetDto = ProductGetDto.toDto(product, 1030000L);
         //then
         assertEquals(productGetDto.getName(), name);
         assertEquals(productGetDto.getPrice(), "1,030,000 ~");
